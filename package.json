@@ -1,0 +1,19 @@
+{
+  "name": "colourlogger",
+  "description": "A tiny logger that support color print and level",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wallace Gibbon",
+    "email": "wallacegibbon@aliyun.com"
+  },
+  "keywords": [
+    "logger",
+    "color",
+    "tiny"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wallacegibbon/colourlogger.git"
+  }
+}
