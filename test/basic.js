@@ -3,37 +3,40 @@ var colourlogger = require("..");
 var logger1 = colourlogger.getLogger("logger1");
 var logger2 = colourlogger.getLogger("logger2");
 
-
-logger1.trace("this is a test");
-logger1.debug("this is a test");
-logger1.info("this is a test");
-logger1.warn("this is a test");
-logger1.error("this is a test");
-logger1.fatal("this is a test");
+//var info = "A quick brown fox jumps over the lazy dog";
+var info = "test string";
 
 
-console.log("\nNow change Level to WARN\n");
+console.log("\n== Normal log ==\n");
+
+logger1.trace(info);
+logger1.debug(info);
+logger1.info(info);
+logger1.warn(info);
+logger1.error(info);
+logger1.fatal(info);
+
+console.log("\n== Change Level to WARN ==\n");
 logger1.setLevel("WARN");
 
-logger1.trace("this is a test");
-logger1.debug("this is a test");
-logger1.info("this is a test");
-logger1.warn("this is a test");
-logger1.error("this is a test");
-logger1.fatal("this is a test");
+logger1.trace(info);
+logger1.debug(info);
+logger1.info(info);
+logger1.warn(info);
+logger1.error(info);
+logger1.fatal(info);
 
+console.log("\n== The level of other loggers is not affected ==\n");
+logger2.trace(info);
 
-console.log("\nThe level of other logger is not affected\n");
-logger2.trace("this is logger 2");
-
-
-console.log("\nRestore logger1\n");
+console.log("\n== Restore logger1 ==\n");
 logger1.setLevel("TRACE");
+logger1.trace(info);
 
-console.log("\nNow disable Color\n");
-logger1.disableColor();
-logger1.trace("this is logger 2");
+console.log("\n== Disable log color ==\n");
+logger1.disableLogColor();
+logger1.trace(info);
 
-console.log("\nNow enable Color\n");
-logger1.enableColor();
-logger1.trace("this is logger 2");
+console.log("\n== Enable log color ==\n");
+logger1.enableLogColor();
+logger1.trace(info);
