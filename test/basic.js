@@ -1,7 +1,7 @@
 var colourlogger = require("..");
 
-var logger1 = colourlogger.getLogger("wallace");
-var logger2 = colourlogger.getLogger("wallace");
+var logger1 = colourlogger.getLogger("logger1");
+var logger2 = colourlogger.getLogger("logger2");
 
 
 logger1.trace("this is a test");
@@ -25,3 +25,15 @@ logger1.fatal("this is a test");
 
 console.log("\nThe level of other logger is not affected\n");
 logger2.trace("this is logger 2");
+
+
+console.log("\nRestore logger1\n");
+logger1.setLevel("TRACE");
+
+console.log("\nNow disable Color\n");
+logger1.disableColor();
+logger1.trace("this is logger 2");
+
+console.log("\nNow enable Color\n");
+logger1.enableColor();
+logger1.trace("this is logger 2");

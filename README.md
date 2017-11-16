@@ -6,10 +6,10 @@ There are 2 ways to use this package:
 1. Use it like normal Logger like Log4js.
 
 ```js
-const logger = require("colourlogger").getLogger("mylog");
+const logger1 = require("colourlogger").getLogger("mylog");
 
-logger.setLevel("INFO");
-logger.info("Hello");
+logger1.setLevel("INFO");
+logger1.info("Hello");
 ```
 
 2. Extends the Logger class
@@ -28,3 +28,10 @@ class MyObj extends Logger {
   }
 }
 ```
+
+The color can be turned off by:
+
+```js
+logger1.disableColor();
+```
+

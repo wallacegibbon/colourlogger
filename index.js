@@ -3,21 +3,41 @@ var LEVELS = [ "TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL" ];
 
 
 function preInfo(level, name) {
-  return COLORS[level] + "[" + (new Date()).toISOString() + "] [" + LEVELS[level] + "] " + name + " -\033[0m";
+  return "[" + now() + "] [" + LEVELS[level] + "] " + name + " - ";
 }
 
+
+function wrapColor(level, rawStr) {
+  return COLORS[level] + rawStr + "\033[0m";
+}
+
+
+function now() {
+  return (new Date()).toISOString();
+}
+
+
+function mkLogFn(level, name, noColor) {
+  var pre = preInfo(level, name);
+  if (!noColor) pre = wrapColor(level, pre);
+
+  return console.log.bind(null, pre);
+}
+
+
 function common(level) {
-  function fn() {
+  function log() {
     if (level >= this.level)
-      console.log.bind(0, preInfo(level, this.name)).apply(console, arguments);
+      mkLogFn(this.level, this.name, this.noColor).apply(console, arguments);
   }
-  return fn;
+  return log;
 }
 
 
 function Logger(name) {
   this.name = name;
   this.level = 0;
+  this.noColor = false;
 }
 
 Logger.prototype.trace = common(0);
@@ -46,6 +66,16 @@ Logger.prototype.disableLog = function() {
 
 Logger.prototype.enableLog = function() {
   this.setLevel("TRACE");
+};
+
+
+Logger.prototype.disableColor = function() {
+  this.noColor = true;
+};
+
+
+Logger.prototype.enableColor = function() {
+  this.noColor = false;
 };
 
 
