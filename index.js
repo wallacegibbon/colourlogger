@@ -4,7 +4,7 @@ var LEVELS = [ "TRACE", "DEBUG", "INFO", "WARN", "ERROR", "FATAL" ];
 
 
 function preString(level, name) {
-  return "[" + current() + "] [" + LEVELS[level] + "] " + name + " - ";
+  return "[" + current() + "] [" + LEVELS[level] + "] " + name + " -";
 }
 
 
