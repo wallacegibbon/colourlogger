@@ -26,15 +26,11 @@ function preInfo(level, name, noColor) {
 
 
 function common(level) {
-  function log() {
-    if (this.noLog || this.level > level)
-      return;
-
-    var fn = console.log.bind(0, preInfo(level, this.name, this.noColor));
-    fn.apply(console, arguments);
+  return function() {
+    if (!this.noLog && this.level <= level)
+      console.log.bind(null, preInfo(level, this.name, this.noColor))
+        .apply(console, arguments);
   }
-
-  return log;
 }
 
 

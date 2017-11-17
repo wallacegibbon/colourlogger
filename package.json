@@ -1,7 +1,7 @@
 {
   "name": "colourlogger",
   "description": "A tiny logger that support color print and level",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": {
     "name": "Wallace Gibbon",
     "email": "wallacegibbon@aliyun.com"
