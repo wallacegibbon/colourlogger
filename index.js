@@ -9,7 +9,8 @@ function preString(level, name) {
 
 
 function current() {
-  var t = Date.now() + 8 * 3600 * 1000;
+  var cur = new Date();
+  var t = cur.getTime() - cur.getTimezoneOffset() * 60 * 1000;
   return (new Date(t)).toISOString().slice(0, 23).replace("T", " ");
 }
 
