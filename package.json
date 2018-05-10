@@ -15,5 +15,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/wallacegibbon/colourlogger.git"
-  }
+  },
+  "types": "./index.d.ts"
 }
